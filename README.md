@@ -1,10 +1,14 @@
 # Proyecto Final robotica
 
 Integrantes:
-- Vicente Rosales
-- Eliseo Guarda
-- Alex Alfaro
 - Manuel Aguilera
+- Alex Alfaro
+- Eliseo Guarda
+- Pedro Nordenflycht
+- Vicente Rosales
+
+
+
 
 
 

@@ -1,0 +1,192 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.10657946179625981 0.9796228024838053 0.17023508209824156 1.1331642978151621
+  position -1.0257737230249768 -0.3232620065334854 2.1821818258459724
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 1.5 1.5
+  floorTileSize 0.25 0.25
+}
+WoodenBox {
+  translation -0.146566 -0.472214 0.05
+  rotation 0 0 1 -0.523595307179586
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.52242 0.183249 0.05
+  rotation 0 0 1 -2.094395307179586
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation -0.492381 0.42477 0.05
+  rotation 0 0 -1 1.28282
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+Robot {
+  translation -0.0988921 0.0193121 0.0299292
+  rotation -0.0006704798320690589 0.00022668094322462467 0.999999749536241 -1.5707953071795862
+  children [
+    DEF Cuerpo Shape {
+      appearance PBRAppearance {
+        baseColor 0.7 0.4 0.7
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.05
+        radius 0.04
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.0867729026074518e-10
+        axis 0 1 0
+        anchor -0.02 -0.04001600000000001 -0.019928300000000003
+      }
+      device [
+        RotationalMotor {
+          name "ruedaDDown"
+        }
+      ]
+      endPoint Solid {
+        translation -0.02 -0.04001600000000001 -0.019928300000000003
+        rotation 1 2.719086609407001e-10 -2.7169372622770107e-10 1.5700000028256051
+        children [
+          DEF Rueda Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.01
+            }
+          }
+        ]
+        name "ruedaDDown"
+        boundingObject USE Rueda
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -1.359724692262279e-10
+        axis 0 1 0
+        anchor 0.020000001755814678 -0.040000000050413036 -0.019998564911008935
+      }
+      device [
+        RotationalMotor {
+          name "ruedaDUp"
+        }
+      ]
+      endPoint Solid {
+        translation 0.020000000000001263 -0.04000000000000432 -0.01999989999999999
+        rotation 0.9999999999999999 -4.759024232842137e-10 4.759041278447785e-10 1.570799996736657
+        children [
+          USE Rueda
+        ]
+        name "ruedaDUp"
+        boundingObject USE Rueda
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -2.415574024494013e-08
+        axis 0 1 0
+        anchor 0.02000000080276699 0.040000000642520184 -0.019999261719725873
+      }
+      device [
+        RotationalMotor {
+          name "ruedaIUp"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0200000000000154 0.04000000048035412 -0.019999899039287006
+        rotation 0.9999999999999999 -1.2077824658994686e-08 1.207787043648798e-08 1.5707999999999995
+        children [
+          USE Rueda
+        ]
+        name "ruedaIUp"
+        boundingObject USE Rueda
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -2.4153805170138128e-08
+        axis 0 1 0
+        anchor -0.019999999353749433 0.04000000111386122 -0.019998557752930867
+      }
+      device [
+        RotationalMotor {
+          name "ruedaIDown"
+        }
+      ]
+      endPoint Solid {
+        translation -0.0199999999999676 0.04000000046813242 -0.019999899063730495
+        rotation 0.9999999999999997 -1.2076859409157539e-08 1.2076902349555616e-08 1.5707999993889117
+        children [
+          USE Rueda
+        ]
+        name "ruedaIDown"
+        boundingObject USE Rueda
+        physics Physics {
+        }
+      }
+    }
+    DistanceSensor {
+      translation 0.04 0 0
+      rotation 0 0 1 0.523599
+      children [
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.007
+          }
+        }
+      ]
+      name "sensorIzq"
+      boundingObject USE Sensor
+    }
+    DistanceSensor {
+      translation 0.04 0 0
+      rotation 0 0 1 -0.523595307179586
+      children [
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.007
+          }
+        }
+      ]
+      name "sensorDer"
+      boundingObject USE Sensor
+    }
+  ]
+  name "robot_universidad"
+  boundingObject USE Cuerpo
+  physics Physics {
+  }
+  controller "evasion_obstaculos"
+}
