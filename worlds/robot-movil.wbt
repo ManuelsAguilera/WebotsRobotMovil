@@ -1,0 +1,93 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/lego/protos/LegoWheel.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.05800031951615538 -0.006577833184921054 0.9982948938297819 4.144592552325935
+  position 0.33420665522773196 0.5782920652572762 0.10546243531019914
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  rotation 0 0 1 4.692820414042842e-06
+  floorSize 1 1.5
+}
+Robot {
+  children [
+    Solid {
+      translation 0 0.05 0.04
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9 0.9 0.3
+            roughness 0.3
+            metalness 0.5
+            emissiveColor 0.9 0.7 0.1
+          }
+          geometry Sphere {
+            radius 0.009
+          }
+        }
+      ]
+    }
+    DEF Body Pose {
+      translation 0 0 0.04
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.6 0.2 0.5
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.05
+            radius 0.05
+          }
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 1.167496844458138e-13
+        anchor 0.06 4.40784e-07 0.0219974
+      }
+      device [
+        RotationalMotor {
+          name "motorL"
+        }
+      ]
+      endPoint LegoWheel {
+        translation 0.05999832852262791 -0.0034992244021152166 0.031421642285304884
+        rotation 0.02358890964013569 0.02358890964013569 0.9994434084449099 -1.5713553071795863
+        name "WheelL"
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 3.2789956708806107e-34
+        anchor -0.06 -6.74634e-14 0.0219974
+      }
+      device [
+        RotationalMotor {
+          name "motorR"
+        }
+      ]
+      endPoint LegoWheel {
+        translation -0.060001671146910414 -0.0034991067942755985 0.031421456940545184
+        rotation 0 0 1 -1.5707953071795862
+        name "WheelR"
+      }
+    }
+  ]
+  name "RobotMovil"
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "robotMovilController"
+}
