@@ -1,27 +1,20 @@
 """evasion_LIDAR controller."""
 
 from controller import Robot,Keyboard
+from PIL import Image
 import math
-from mapeado import update_occupancy_grid,save_map_image
+from mapeado import update_occupancy_grid,map_array
 
 # Parámetros
-TIME_STEP = 64
+TIME_STEP = 128
 MAX_SPEED = 6.28
 
 
-def obtenerPose(gps_val,comp_val):
-    '''
-    Devuelve (robot_x, robot_y, theta) donde:
-    - robot_x: posición x del robot en metros
-    - robot_y: posición y del robot en metros
-    - theta: orientación del robot en radianes
-    '''
-    robot_x = gps_val[0]
-    robot_y = gps_val[2]
-
-    theta = math.atan2(comp_val[0], comp_val[2])  # Calcular orientación del robot
-
-    return robot_x, robot_y, theta
+def obtenerPose(gps_val, comp_val):
+    robot_x = gps_val[1]
+    robot_z = gps_val[0]  # Usa z, no y
+    theta = math.atan2(comp_val[1], comp_val[0])
+    return robot_x, robot_z, theta
 
 
 
@@ -37,6 +30,11 @@ if __name__ == "__main__":
     gps.enable(TIME_STEP)
     compass = robot.getDevice('compass')
     compass.enable(TIME_STEP)
+
+    #Encontrar display
+
+    display = robot.getDevice('display') 
+    
 
     # Motores
     left_motors = [
@@ -90,7 +88,7 @@ if __name__ == "__main__":
         if estado is True:
             direccion_giro = None  # Resetear dirección cuando avanza
 
-            if front < 0.12:  # Objeto demasiado cerca al frente
+            if front < 0.08:  # Objeto demasiado cerca al frente
                 estado = False
                 if left > right:
                     direccion_giro = "izquierda"
@@ -101,7 +99,7 @@ if __name__ == "__main__":
                 right_speed = MAX_SPEED * 0.8
 
         elif estado is False:
-            if front >= 0.4 and left >= 0.214 and right >= 0.214:
+            if front >= 0.3 and left >= 0.114 and right >= 0.114:
                 estado = True
             else:
                 if direccion_giro == "izquierda":
@@ -114,7 +112,17 @@ if __name__ == "__main__":
         robot_pose = obtenerPose(gps.getValues(), compass.getValues())
         update_occupancy_grid(robot_pose, lidar_data, lidar_resolution, lidar_fov)
         # Actualizar mapa de ocupación
+        img,map_size = map_array(robot_pose)
+        # Obtener tamaño del display
+        display_width = display.getWidth()
+        display_height = display.getHeight()
 
+        # Redimensionar la imagen del mapa al tamaño del display
+        img_resized = Image.fromarray(img).resize((display_width, display_height), resample=Image.NEAREST)
+        display_image = display.imageNew(img_resized.tobytes(), display.RGB, display_width, display_height)
+        
+        display.imagePaste(display_image, 0, 0, False)
+        display.imageDelete(display_image)
         #print(robot_pose)
 
         # Aplicar velocidades
@@ -123,8 +131,3 @@ if __name__ == "__main__":
         for motor in right_motors:
             motor.setVelocity(right_speed)
 
-        # Mostrar imagen del mapa
-        key = keyboard.getKey()
-        if key == ord('S'):
-            print("Guardando imagen del mapa...")
-            save_map_image("mapa_evasion_LIDAR.png",robot_pose=robot_pose)
