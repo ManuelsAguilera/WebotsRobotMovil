@@ -9,14 +9,15 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
-  position 0.0004047828585154424 6.075970267894158e-06 3.014918349459763
+  position 0.00040766110247394716 8.954222365403437e-06 4.032817911531735
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
-RectangleArena {
-  floorSize 1.5 1.5
+DEF arena RectangleArena {
+  name "arena"
+  floorSize 2 2
   floorTileSize 0.25 0.25
 }
 WoodenBox {
@@ -37,8 +38,13 @@ WoodenBox {
   size 0.1 0.1 0.1
 }
 Robot {
-  translation 0 0 0.03
+  translation 0.17874690690968822 -0.09600139939157308 0.02992709690250296
+  rotation 0.00035910046807287977 0.0002643951983717865 0.9999999005710116 -2.9338190152920824
   children [
+    Compass {
+    }
+    GPS {
+    }
     DEF Cuerpo Shape {
       appearance PBRAppearance {
         baseColor 0.7 0.4 0.7
@@ -51,7 +57,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 2209.8974373419237
+        position 2337.6563475296653
         axis 0 1 0
         anchor -0.02 -0.04001600000000001 -0.019928300000000003
       }
@@ -61,8 +67,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.01999949625412059 -0.040016003294127966 -0.01992787987237436
-        rotation 0.4953987390266386 -0.6144839113890458 0.6139947980356477 2.2210392802769765
+        translation -0.019999888554615316 -0.040016003294127966 -0.01992894641090576
+        rotation 0.9762148263055974 0.15336566871267598 -0.15324354655725636 1.5940705141861011
         children [
           DEF Rueda Shape {
             appearance PBRAppearance {
@@ -79,11 +85,13 @@ Robot {
         boundingObject USE Rueda
         physics Physics {
         }
+        linearVelocity 2.5759536890031256e-11 2.15723069396064e-12 4.9319671959892645e-09
+        angularVelocity -5.205435057616439e-10 2.502805256870832e-09 -3.9355772507714776e-10
       }
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 2194.6690326691178
+        position 2322.427942730231
         axis 0 1 0
         anchor 0.020000001755814678 -0.040000000050413036 -0.019998564911008935
       }
@@ -93,8 +101,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.019997525160767304 -0.039999995876734 -0.01999884301657689
-        rotation -0.4750886456953989 -0.6222089545556717 0.6222112146225346 4.028631085938773
+        translation 0.020001001053735132 -0.039999995876734 -0.019996281871499468
+        rotation 0.2831260692232342 -0.6781726321634038 0.678175132182507 2.5897842243863995
         children [
           USE Rueda
         ]
@@ -102,11 +110,13 @@ Robot {
         boundingObject USE Rueda
         physics Physics {
         }
+        linearVelocity 2.773575848446013e-11 8.453860779328173e-12 1.0544222895166471e-08
+        angularVelocity -6.53211361461305e-10 3.143120768615301e-09 -3.9385104617773396e-10
       }
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 2152.4682287218234
+        position 2246.093138078924
         axis 0 1 0
         anchor 0.02000000080276699 0.040000000642520184 -0.019999261719725873
       }
@@ -116,8 +126,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.020000394760543747 0.040000004214549335 -0.019997996215178716
-        rotation -0.16952533585626076 0.6968707142010412 -0.696873279866399 3.4774490845666826
+        translation 0.0199995825223167 0.040000004214549335 -0.019998004044905558
+        rotation -0.05150345635635556 -0.706167025745738 0.706169615413158 3.2445081904789728
         children [
           USE Rueda
         ]
@@ -125,11 +135,13 @@ Robot {
         boundingObject USE Rueda
         physics Physics {
         }
+        linearVelocity -1.0271748988826582e-11 4.3455573395143605e-13 5.355341599457893e-09
+        angularVelocity 2.58400254303216e-10 -1.1784585961256982e-09 -3.918680196099734e-10
       }
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 2144.6819420861616
+        position 2238.3068516300436
         axis 0 1 0
         anchor -0.019999999353749433 0.04000000111386122 -0.019998557752930867
       }
@@ -139,8 +151,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.02000247703220232 0.03999999760470765 -0.019998160943559957
-        rotation -0.3699826385095944 -0.6569283453571554 0.6569307393232474 3.850319508145244
+        translation -0.0200022432289147 0.03999999760470765 -0.01999968086131185
+        rotation 0.6073294629745918 0.5617600192139167 -0.5617620530222507 2.0500131699061193
         children [
           USE Rueda
         ]
@@ -148,6 +160,8 @@ Robot {
         boundingObject USE Rueda
         physics Physics {
         }
+        linearVelocity -1.0315816170174948e-11 -4.469737647528052e-12 1.0211743235305463e-08
+        angularVelocity 2.5784540764727667e-10 -1.1770928557364887e-09 -3.918673876705043e-10
       }
     }
     DistanceSensor {
@@ -206,4 +220,6 @@ Robot {
   physics Physics {
   }
   controller "evasion_LIDAR"
+  linearVelocity 2.8226542695890373e-11 5.875330503633578e-12 -2.2792279754275416e-14
+  angularVelocity -2.017074417016782e-10 9.943035028619368e-10 -3.9288680570448503e-10
 }
