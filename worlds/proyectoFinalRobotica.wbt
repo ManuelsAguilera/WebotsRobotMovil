@@ -8,8 +8,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.10657946179625981 0.9796228024838053 0.17023508209824156 1.1331642978151621
-  position -1.0257737230249768 -0.3232620065334854 2.1821818258459724
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position 0.0004047828585154424 6.075970267894158e-06 3.014918349459763
 }
 TexturedBackground {
 }
@@ -37,8 +37,7 @@ WoodenBox {
   size 0.1 0.1 0.1
 }
 Robot {
-  translation -0.0988921 0.0193121 0.0299292
-  rotation -0.0006704798320690589 0.00022668094322462467 0.999999749536241 -1.5707953071795862
+  translation 0 0 0.03
   children [
     DEF Cuerpo Shape {
       appearance PBRAppearance {
@@ -52,7 +51,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 1.0867729026074518e-10
+        position 2209.8974373419237
         axis 0 1 0
         anchor -0.02 -0.04001600000000001 -0.019928300000000003
       }
@@ -62,8 +61,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.02 -0.04001600000000001 -0.019928300000000003
-        rotation 1 2.719086609407001e-10 -2.7169372622770107e-10 1.5700000028256051
+        translation -0.01999949625412059 -0.040016003294127966 -0.01992787987237436
+        rotation 0.4953987390266386 -0.6144839113890458 0.6139947980356477 2.2210392802769765
         children [
           DEF Rueda Shape {
             appearance PBRAppearance {
@@ -84,7 +83,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -1.359724692262279e-10
+        position 2194.6690326691178
         axis 0 1 0
         anchor 0.020000001755814678 -0.040000000050413036 -0.019998564911008935
       }
@@ -94,8 +93,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.020000000000001263 -0.04000000000000432 -0.01999989999999999
-        rotation 0.9999999999999999 -4.759024232842137e-10 4.759041278447785e-10 1.570799996736657
+        translation 0.019997525160767304 -0.039999995876734 -0.01999884301657689
+        rotation -0.4750886456953989 -0.6222089545556717 0.6222112146225346 4.028631085938773
         children [
           USE Rueda
         ]
@@ -107,7 +106,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -2.415574024494013e-08
+        position 2152.4682287218234
         axis 0 1 0
         anchor 0.02000000080276699 0.040000000642520184 -0.019999261719725873
       }
@@ -117,8 +116,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.0200000000000154 0.04000000048035412 -0.019999899039287006
-        rotation 0.9999999999999999 -1.2077824658994686e-08 1.207787043648798e-08 1.5707999999999995
+        translation 0.020000394760543747 0.040000004214549335 -0.019997996215178716
+        rotation -0.16952533585626076 0.6968707142010412 -0.696873279866399 3.4774490845666826
         children [
           USE Rueda
         ]
@@ -130,7 +129,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -2.4153805170138128e-08
+        position 2144.6819420861616
         axis 0 1 0
         anchor -0.019999999353749433 0.04000000111386122 -0.019998557752930867
       }
@@ -140,8 +139,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.0199999999999676 0.04000000046813242 -0.019999899063730495
-        rotation 0.9999999999999997 -1.2076859409157539e-08 1.2076902349555616e-08 1.5707999993889117
+        translation -0.02000247703220232 0.03999999760470765 -0.019998160943559957
+        rotation -0.3699826385095944 -0.6569283453571554 0.6569307393232474 3.850319508145244
         children [
           USE Rueda
         ]
@@ -166,6 +165,8 @@ Robot {
       ]
       name "sensorIzq"
       boundingObject USE Sensor
+      physics Physics {
+      }
     }
     DistanceSensor {
       translation 0.04 0 0
@@ -182,11 +183,27 @@ Robot {
       ]
       name "sensorDer"
       boundingObject USE Sensor
+      physics Physics {
+      }
+    }
+    Lidar {
+      translation 0 0 0.03
+      children [
+        USE Sensor
+      ]
+      name "LIDAR"
+      boundingObject USE Sensor
+      physics Physics {
+      }
+      horizontalResolution 360
+      fieldOfView 6.28
+      numberOfLayers 1
+      maxRange 0.5
     }
   ]
   name "robot_universidad"
   boundingObject USE Cuerpo
   physics Physics {
   }
-  controller "evasion_obstaculos"
+  controller "evasion_LIDAR"
 }
