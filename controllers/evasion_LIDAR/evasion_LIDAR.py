@@ -72,7 +72,7 @@ while robot.step(TIME_STEP) != -1:
 
     elif estado is False:
         # ✔️ Nueva condición: No solo mirar frente, también laterales
-        if front >= 0.4 and left >= 0.214 and right >= 0.214:
+        if front >= 0.4 and left >= 0.213 and right >= 0.213:
             estado = True
         else:
             if direccion_giro == "izquierda":
