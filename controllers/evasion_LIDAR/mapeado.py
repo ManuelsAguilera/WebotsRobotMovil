@@ -6,14 +6,10 @@ import math
 MAP_SIZEmt = 2
 MAP_RESOLUTION = 0.01  # metros por celda
 
-
 MAP_SIZE = int(MAP_SIZEmt / MAP_RESOLUTION)  # número de celdas por lado
 print("Tamaño del mapa:", MAP_SIZE, "celdas")
 MAP_CENTER = MAP_SIZE // 2
 occupancy_grid = np.zeros((MAP_SIZE, MAP_SIZE), dtype=np.uint8)
-
-
-
 
 def world_to_map(x, y):
     mx = int(MAP_CENTER + x / MAP_RESOLUTION)

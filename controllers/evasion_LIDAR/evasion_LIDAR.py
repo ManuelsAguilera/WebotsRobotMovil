@@ -1,14 +1,13 @@
-"""evasion_LIDAR controller."""
-
-from controller import Robot,Keyboard
+from controller import Robot
 from PIL import Image
 import math
 from mapeado import update_occupancy_grid,map_array
+from planificador import dijkstra
+from mapeado import world_to_map
 
 # Parámetros
 TIME_STEP = 128
 MAX_SPEED = 6.28
-
 
 def obtenerPose(gps_val, comp_val):
     robot_x = gps_val[1]
@@ -16,14 +15,9 @@ def obtenerPose(gps_val, comp_val):
     theta = math.atan2(comp_val[1], comp_val[0])
     return robot_x, robot_z, theta
 
-
-
 if __name__ == "__main__":
     # Inicializar robot
     robot = Robot()
-    #Inicializar controles del teclado
-    keyboard = Keyboard()
-    keyboard.enable(TIME_STEP)
 
     #Iniciar GPS y Compass
     gps = robot.getDevice('gps')
@@ -32,9 +26,7 @@ if __name__ == "__main__":
     compass.enable(TIME_STEP)
 
     #Encontrar display
-
-    display = robot.getDevice('display') 
-    
+    display = robot.getDevice('display')
 
     # Motores
     left_motors = [
@@ -57,7 +49,6 @@ if __name__ == "__main__":
 
     lidar_resolution = lidar.getHorizontalResolution()
     lidar_fov = lidar.getFov()
-
 
     # Calcular índices para sectores
     center_index = lidar_resolution // 2
@@ -130,4 +121,3 @@ if __name__ == "__main__":
             motor.setVelocity(left_speed)
         for motor in right_motors:
             motor.setVelocity(right_speed)
-

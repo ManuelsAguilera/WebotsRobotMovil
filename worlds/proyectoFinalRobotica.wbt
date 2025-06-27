@@ -4,12 +4,13 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.613525042937318 0.444753954286836 0.6525189206720254 2.25589523118308
-  position 0.06228754231139264 -0.23178809637534933 5.840087718096504
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position 0.00030853285831098097 6.878113172578489e-06 6.904060663970159
 }
 TexturedBackground {
 }
@@ -21,24 +22,259 @@ DEF arena RectangleArena {
   floorTileSize 0.25 0.25
 }
 WoodenBox {
-  translation -0.127419 0.68774 0.05
-  name "wooden box(3)"
-  size 0.5 0.2 0.25
-}
-WoodenBox {
-  translation -0.607419 -0.23226 0.05
-  rotation 0 0 1 0.785398
-  name "wooden box(1)"
-  size 0.5 0.2 0.25
-}
-WoodenBox {
-  translation 0.432736 -0.187198 0.05
-  rotation 0 0 1 1.5708
+  translation -0.664274 -0.723577 0.09
+  rotation 0 0 -1 -2.6180053071795863
   name "wooden box(2)"
-  size 0.05 0.75 0.2
+  size 0.15 0.5 0.2
+}
+WoodenBox {
+  translation -0.480019 -0.395135 0.09
+  rotation 0 0 -1 -2.6180053071795863
+  name "wooden box(1)"
+  size 0.15 0.5 0.2
+}
+WoodenBox {
+  translation 0.192336 -0.448634 0.09
+  rotation 0 0 -1 1.57079
+  name "wooden box(3)"
+  size 0.15 0.5 0.2
+}
+WoodenBox {
+  translation -0.558866 0.367178 0.09
+  rotation 0 0 1 6.32203e-06
+  name "wooden box(5)"
+  size 0.15 0.5 0.2
+}
+WoodenBox {
+  translation 0.158505 0.149019 0.09
+  rotation 0 0 1 1.8326
+  name "wooden box(6)"
+  size 0.15 0.3 0.2
+}
+WoodenBox {
+  translation 0.456984 0.0740005 0.09
+  rotation 0 0 1 1.8326
+  name "wooden box(13)"
+  size 0.15 0.4 0.2
+}
+WoodenBox {
+  translation 0.830378 0.0610227 0.09
+  rotation 0 0 1 0.785405
+  name "wooden box(12)"
+  size 0.15 0.4 0.2
+}
+WoodenBox {
+  translation 0.441742 0.563014 0.09
+  rotation 0 0 1 2.0944
+  name "wooden box(11)"
+  size 0.15 0.4 0.2
+}
+WoodenBox {
+  translation 0.22263 0.605804 0.09
+  rotation 0 0 1 2.0944
+  name "wooden box(9)"
+  size 0.15 0.4 0.2
+}
+WoodenBox {
+  translation -0.00855515 0.648494 0.09
+  rotation 0 0 1 2.0944
+  name "wooden box(8)"
+  size 0.15 0.4 0.2
+}
+WoodenBox {
+  translation -0.422751 0.544418 0.09
+  rotation 0 0 1 1.5708
+  name "wooden box(7)"
+  size 0.15 0.4 0.2
+}
+WoodenBox {
+  translation 0.328907 -0.639851 0.11
+  rotation 0 0 1 -2.356185307179586
+  name "wooden box(10)"
+  size 0.15 0.15 0.15
+}
+WoodenBox {
+  translation -0.221889 -0.514428 0.11
+  rotation 0 0 -1 2.09439
+  name "wooden box(16)"
+  size 0.15 0.15 0.15
+}
+WoodenBox {
+  translation 0.596831 -0.570742 0.11
+  rotation 0 0 1 -2.356185307179586
+  name "wooden box(15)"
+  size 0.15 0.15 0.15
+}
+WoodenBox {
+  translation -0.367612 0.351574 0.11
+  rotation 0 0 1 -2.356185307179586
+  name "wooden box(14)"
+  size 0.15 0.15 0.15
+}
+WoodenBox {
+  translation -0.238326 -0.332879 0.09
+  rotation 0 0 1 -2.0943853071795866
+  name "wooden box(4)"
+  size 0.15 0.5 0.2
+}
+OilBarrel {
+  translation -0.80659 -0.523128 0.1
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.438688 0.0970026 0.1
+  name "oil barrel(2)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.521129 -0.0459449 0.1
+  name "oil barrel(19)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.845473 -0.142668 0.1
+  name "oil barrel(21)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.33979 -0.434237 0.1
+  name "oil barrel(22)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.401504 -0.536115 0.1
+  name "oil barrel(25)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.457145 -0.571814 0.1
+  name "oil barrel(24)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.49862 -0.476454 0.1
+  name "oil barrel(23)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.0172242 -0.014284 0.1
+  name "oil barrel(20)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.638188 0.522627 0.1
+  name "oil barrel(13)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.0132783 0.483529 0.1
+  name "oil barrel(18)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.718184 0.61196 0.1
+  name "oil barrel(17)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation 0.657657 0.719679 0.1
+  name "oil barrel(16)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.615678 0.674503 0.1
+  name "oil barrel(15)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.697838 0.59694 0.1
+  name "oil barrel(14)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.448496 -0.0233259 0.1
+  name "oil barrel(12)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.37187 -0.117471 0.1
+  name "oil barrel(11)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.37187 -0.117471 0.1
+  name "oil barrel(10)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.701732 -0.516404 0.1
+  name "oil barrel(9)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.912577 -0.530453 0.1
+  name "oil barrel(1)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.937385 -0.745806 0.1
+  name "oil barrel(3)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.876587 -0.83451 0.1
+  name "oil barrel(7)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.937748 -0.9294 0.1
+  name "oil barrel(8)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.877761 -0.628004 0.1
+  name "oil barrel(4)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.823858 -0.732199 0.1
+  name "oil barrel(5)"
+  height 0.2
+  radius 0.06
+}
+OilBarrel {
+  translation -0.759715 -0.625642 0.1
+  name "oil barrel(6)"
+  height 0.2
+  radius 0.06
 }
 Robot {
-  translation 0.89 -0.8 0
+  translation -0.821324 -0.315096 0
+  rotation 0 0 1 1.5708
   children [
     Display {
       width 128
@@ -126,7 +362,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.019999854600083238 0.040000004214549335 -0.019997944400757656
-        rotation 0.022959185149212042 -0.7069190921585166 0.706921687995964 3.095682452721512
+        rotation 0.02295918514921203 -0.7069190921585168 0.7069216879959638 3.095682452721512
         children [
           USE Rueda
         ]
@@ -159,46 +395,17 @@ Robot {
         }
       }
     }
-    DistanceSensor {
-      translation 0.04 0 0
-      rotation 0 0 1 0.523599
-      children [
-        DEF Sensor Shape {
-          appearance PBRAppearance {
-            metalness 0
-          }
-          geometry Sphere {
-            radius 0.007
-          }
-        }
-      ]
-      name "sensorIzq"
-      boundingObject USE Sensor
-      physics Physics {
-      }
-    }
-    DistanceSensor {
-      translation 0.04 0 0
-      rotation 0 0 1 -0.523595307179586
-      children [
-        DEF Sensor Shape {
-          appearance PBRAppearance {
-            metalness 0
-          }
-          geometry Sphere {
-            radius 0.007
-          }
-        }
-      ]
-      name "sensorDer"
-      boundingObject USE Sensor
-      physics Physics {
-      }
-    }
     Lidar {
       translation 0 0 0.03
       children [
-        USE Sensor
+        DEF Sensor Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.007
+          }
+        }
       ]
       name "LIDAR"
       boundingObject USE Sensor
